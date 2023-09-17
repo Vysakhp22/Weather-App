@@ -1,15 +1,22 @@
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 .example-card {
-  width: 25rem;
-  height: 35rem;
-  position: absolute;
-  left: 30rem;
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-mat-card-header, mat-card-actions {
+mat-card-actions,
+mat-card-header {
   justify-content: center;
 }
 
+.btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  width: -webkit-fill-available;
+}

@@ -10,7 +10,6 @@
 
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
     <mat-form-field>
       <mat-label>Select city</mat-label>
       <mat-select [formControl]="cityControl">
@@ -20,18 +19,10 @@
       </mat-select>
     </mat-form-field>
   </mat-card-header>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-  <mat-card-content>
-    <!-- <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p> -->
-  </mat-card-content>
   <mat-card-actions class="btn">
-    <button mat-raised-button>{{city}}</button>
+    <button mat-raised-button color="primary">{{cityControl.value}}</button>
+    <button mat-raised-button color="accent">{{this.climate?.weather[0]?.main}}</button>
+    <button mat-raised-button color="warn">{{this.climate?.main?.temp}}</button>
   </mat-card-actions>
 </mat-card>
-
-
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

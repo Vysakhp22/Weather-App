@@ -8,21 +8,19 @@ import { WeatherServiceService } from './services/weather-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public cities: string[] = ["London", "Paris", "Moscow", "New York", "Karachi", "Sydney"];
+  public cities: string[] = ["London", "Paris", "Moscow", "New York", "Karachi", "Sydney", "Kerala"];
   public cityControl: FormControl = new FormControl('');
-  public city: string | undefined
+  public climate: any;
 
   constructor(private wService: WeatherServiceService) { }
 
   ngOnInit(): void {
-    this.cityControl.valueChanges.subscribe((val) =>{
-      this.city = val;
-      
-    })
-    this.wService.getWeather('London').subscribe((res) => {
-      console.log(res);
-
-    })
+    this.cityControl.valueChanges.subscribe((val) => {
+      this.wService.getWeather(val).subscribe((res) => {
+        this.climate = res;
+        console.log(this.climate?.weather[0]?.description);
+        
+      });
+    });
   }
-
 }
