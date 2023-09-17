@@ -8,7 +8,7 @@ import { WeatherServiceService } from './services/weather-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public cities: string[] = ["London", "Paris", "Moscow", "New York", "Karachi", "Sydney", "Kerala"];
+  public cities: string[] = ["Kottayam", "Idukki", "Alappuzha", "Ernakulam", "Thiruvananthapuram"];
   public cityControl: FormControl = new FormControl('');
   public climate: any;
 
@@ -18,8 +18,6 @@ export class AppComponent implements OnInit {
     this.cityControl.valueChanges.subscribe((val) => {
       this.wService.getWeather(val).subscribe((res) => {
         this.climate = res;
-        console.log(this.climate?.weather[0]?.description);
-        
       });
     });
   }
